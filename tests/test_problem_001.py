@@ -1,4 +1,4 @@
-from euler.problem_1 import numbers, sum_of_multiples
+from euler.problem_001 import numbers, sum_of_multiples
 
 
 def test_numbers():
