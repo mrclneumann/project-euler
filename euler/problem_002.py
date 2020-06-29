@@ -5,7 +5,7 @@ def sum_of_even_fibonacci(n):
     return sum(x for x in fibonacci(n) if is_even(x))
 
 
-def fibonacci(limit):
+def fibonacci(n):
     def fib_gen():
         a, b = 1, 1
 
@@ -13,7 +13,7 @@ def fibonacci(limit):
             yield b
             a, b = b, a + b
 
-    return takewhile(lambda x: x <= limit, fib_gen())
+    return takewhile(lambda x: x <= n, fib_gen())
 
 
 def is_even(x):

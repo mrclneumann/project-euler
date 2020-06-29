@@ -1,15 +1,19 @@
-def sum_of_multiples(limit, divisors):
-    return sum(numbers(limit, divisors))
+from itertools import count, takewhile
 
 
-def numbers(limit, divisors):
-    for i in range(1, limit):
-        if any(divisible_by(i, n) for n in divisors):
-            yield i
+def sum_of_multiples(stop, divisors):
+    return sum(numbers_divisible_by(stop, divisors))
 
 
-def divisible_by(x, n):
-    return x % n == 0
+def numbers_divisible_by(stop, divisors):
+    def generator():
+        return filter(lambda x: any(divisible_by(x, k) for k in divisors), count(1))
+
+    return takewhile(lambda x: x < stop, generator())
+
+
+def divisible_by(x, k):
+    return x % k == 0
 
 
 if __name__ == '__main__':
