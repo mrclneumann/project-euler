@@ -1,8 +1,8 @@
 from itertools import takewhile
 
 
-def sum_of_even_fibonacci(n):
-    return sum(x for x in fibonacci(n) if is_even(x))
+def sum_of_even_fibonacci(stop):
+    return sum(x for x in fibonacci(stop) if is_even(x))
 
 
 def fibonacci(stop):
